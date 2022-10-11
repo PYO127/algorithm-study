@@ -5,21 +5,21 @@ import itertools
 
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        results = []
+        ans = []
+        elements = []
 
-        def dfs(elements, start: int, k: int):
-            if k == 0:
-                results.append(elements[:])
-                return
+        def dfs(start, index):
+            if index == 0:
+                ans.append(elements[:])
 
-            for e in range(start, n + 1):
-                elements.append(e)
-                dfs(elements, e + 1, k - 1)
+            for i in range(start, n + 1):
+                elements.append(i)
+                dfs(i + 1, index - 1)
                 elements.pop()
 
-        dfs([], 1, k)
+        dfs(1, k)
+        return ans
 
-        return results
-
-    def combine_itertools(self, n:int, k:int) -> List[List[int]]:
-        return list(map(list,itertools.combinations(range(1,n+1),k)))
+    def combine_itertools(self, n: int, k: int) -> List[List[int]]:
+        # List[Tuple[int]] -> List[List[int]] 변환
+        return list(map(list, itertools.combinations(range(1, n + 1), k)))
