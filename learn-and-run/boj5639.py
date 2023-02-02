@@ -1,3 +1,5 @@
+# boj.kr/5639 이진 검색 트리
+
 import sys
 
 sys.setrecursionlimit(10 ** 6)
