@@ -10,7 +10,7 @@ deque = collections.deque()
 cost[n] = 0
 deque.append(n)
 
-while len(deque) != 0:
+while deque:
     x = deque.popleft()
     t = cost[x]
     if 2 * x < 100001 and cost[2 * x] == -1:
