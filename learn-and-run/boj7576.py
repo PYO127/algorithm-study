@@ -15,7 +15,8 @@ for i in range(m):
             deque.append((i, j, 0))
 
 while deque:
-    x, y, d = deque.popleft()  # python 은 반복문 안에서 선언된 변수도 global (d)
+    x, y, d = deque.popleft()
+    # python 은 반복문 안에서 선언된 변수도 global (d)
     for i in range(4):
         nx, ny = x + dx[i], y + dy[i]
         if 0 <= nx < m and 0 <= ny < n and board[nx][ny] == 0:
@@ -23,6 +24,7 @@ while deque:
             board[nx][ny] = 1
 
 for i in range(m):
+    # count 메소드: 문자열, 리스트, 튜플 등에서 특정 요소의 갯수 찾기
     if board[i].count(0):
         d = -1
         break
