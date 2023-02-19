@@ -1,4 +1,5 @@
-from ListNode import ListNode
+# p489 Q58. 정렬
+from Node import ListNode
 
 
 class Solution:
