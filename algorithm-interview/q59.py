@@ -1,3 +1,4 @@
+# p497 Q59. 구간 병합
 from typing import List
 
 
