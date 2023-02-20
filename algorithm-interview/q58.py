@@ -5,13 +5,15 @@ from Node import ListNode
 class Solution:
     def sortList(self, head: ListNode) -> ListNode:
         if not (head and head.next):
+            # 위 조건이 있는 이유 -> 10번 라인 while 문 반복이 1회라도 실행되지 못할 경우,
+            # half = None
             return head
-        # 런너 기법: 분할정복을 을 위해 가운데 찾으려고 사용
+        # 런너 기법: 분할정복을 위해 가운데 찾으려고 사용
         half, slow, fast = None, head, head
         while fast and fast.next:
-            # 전체 리스트의 길이가 짝수면 마지막에 fast는 None,
-            # 홀수면 리스트 마지막 노드가 되므로,
-            # while 조건을 위와 같이 사용
+            # while 조건을 위와 같이 사용한 이유:
+            # 우선 fast.next가 None이 아니어야 fast.next.next가 존재할 수 있음.
+            # fast.next가 None이 아니기 위해서는 fast 가 None이 아니어야 함
             half, slow, fast = slow, slow.next, fast.next.next
         half.next = None
         # half가 왼쪽 리스트 마지막 노드,
