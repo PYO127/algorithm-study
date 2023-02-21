@@ -4,7 +4,7 @@ from Node import ListNode
 
 class Solution:
     def insertionSortList(self, head: ListNode) -> ListNode:
-        curr = parent = ListNode(None)
+        curr = parent = ListNode(0)
         while head:
             while curr.next and curr.next.val < head.val:
                 # input의 element 가 들어갈 위치를 앞에서부터 찾는다.
@@ -16,11 +16,13 @@ class Solution:
             curr.next, head.next, head = head, curr.next, head.next
             # 들어가야할 위치 전후 연결 + 다음 unsorted 원소
 
-            if head and curr.val > head.val:  # 시간 개선
-                curr = parent
-
             # 필요한 경우에만 curr가 처음(parent)으로 돌아가도록 처리
             if head and head.val < curr.next.val:
                 curr = parent
 
         return parent.next
+
+
+
+S = Solution()
+S.insertionSortList(ListNode(3, ListNode(5, ListNode(4))))
