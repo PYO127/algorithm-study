@@ -21,8 +21,3 @@ class Solution:
                 curr = parent
 
         return parent.next
-
-
-
-S = Solution()
-S.insertionSortList(ListNode(3, ListNode(5, ListNode(4))))
